@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\Scripts\HealthBarreScript.cs" />
     <Compile Include="Assets\Scripts\MyInput.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Strategie.cs" />
+    <Compile Include="Assets\Scripts\StrategieInactive.cs" />
     <Compile Include="Assets\Scripts\StrategieMDP.cs" />
     <Compile Include="Assets\Scripts\StrategiePlayer.cs" />
     <Reference Include="UnityEditor.StandardEvents">

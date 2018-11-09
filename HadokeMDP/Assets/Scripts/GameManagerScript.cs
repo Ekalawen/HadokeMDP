@@ -45,7 +45,7 @@ public class GameManagerScript : MonoBehaviour {
             strategie1.Unload();
             strategie2.Unload();
 
-            Application.Quit();
+            QuitGame();
         }
 	}
 
@@ -64,15 +64,21 @@ public class GameManagerScript : MonoBehaviour {
         bool player1IsDammaged = player1.ApplyDammage(player2);
         bool player2IsDammaged = player2.ApplyDammage(player1);
         if (player1IsDammaged)
-            player1.etat = PlayerScript.Etat.DAMMAGED;
-        if (player1IsDammaged)
-            player1.etat = PlayerScript.Etat.DAMMAGED;
+            StartCoroutine(CSetDammage(player1));
+        if (player2IsDammaged)
+            StartCoroutine(CSetDammage(player2));
 
         if (isDisplayedOnScreen)
         {
             player1.Display();
             player2.Display();
         }
+    }
+
+    IEnumerator CSetDammage(PlayerScript player) {
+        yield return new WaitForSeconds(0.20f);
+        player.etat = PlayerScript.Etat.DAMMAGED;
+        player.Display();
     }
 
     bool isTimeNextFrame()
@@ -89,5 +95,16 @@ public class GameManagerScript : MonoBehaviour {
     bool isFinMatch()
     {
         return player1.isDead() || player2.isDead();
+    }
+    
+    void QuitGame()
+    {
+        #if UNITY_EDITOR
+                // Application.Quit() does not work in the editor so
+                // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                 Application.Quit();
+        #endif
     }
 }

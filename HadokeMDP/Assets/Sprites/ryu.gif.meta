@@ -16,6 +16,7 @@ TextureImporter:
     21300022: ryu_11
     21300024: ryu_12
     21300026: ryu_13
+    21300028: ryu_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -292,8 +293,8 @@ TextureImporter:
       name: ryu_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 616
+        x: 966
+        y: 615
         width: 54
         height: 105
       alignment: 1
@@ -384,6 +385,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 21b0406e4984ff0429ff184639ac837f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ryu_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 54
+        height: 105
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b18e5ae0d32f3045a443a1b42769cc0
       vertices: []
       indices: 
       edges: []

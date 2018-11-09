@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
 
     public static int leftSideTerrain = 0;
     public static int rightSideTerrain = 10;
+    public static float offsetRightPlayer = 3.25f;
 
     public enum Etat {
         IDLE,
@@ -30,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
 
     public Transform displayPosition;
     public SpriteRenderer sprite;
+    public HealthBarreScript healthBarre;
 
     public List<Sprite> sprites;
 
@@ -40,6 +42,8 @@ public class PlayerScript : MonoBehaviour {
         // On update la position
         Vector3 oldPosition = displayPosition.position;
         float x = (float)position / (float)rightSideTerrain * 20f - 10f;
+        if (!isLeftplayer)
+            x += offsetRightPlayer;
         displayPosition.position = new Vector3(x, oldPosition.y, oldPosition.z);
 
         // On tourne le sprite si c'est le joueur de droite
@@ -47,6 +51,9 @@ public class PlayerScript : MonoBehaviour {
             Vector3 oldScale = displayPosition.localScale;
             displayPosition.localScale = new Vector3(Mathf.Min(oldScale.x, -oldScale.x), oldScale.y, oldScale.z);
         }
+
+        // On met à jour la vie
+        healthBarre.SetLife((float)pv / (float)10);
     }
 
     public override string ToString() {

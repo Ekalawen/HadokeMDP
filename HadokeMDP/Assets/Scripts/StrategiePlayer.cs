@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class StrategiePlayer : Strategie {
 
+    public KeyCode punchButton;
+    public KeyCode kickButton;
+    public KeyCode uppercutButton;
+    public KeyCode protectButton;
+
+    public KeyCode leftButton;
+    public KeyCode rightButton;
+
     MyInput input;
 
     public override MyInput GetInput() {
@@ -23,19 +31,19 @@ public class StrategiePlayer : Strategie {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(punchButton)) {
             input.SetCoup(MyInput.Coup.PUNCH);
-        } else if (Input.GetKeyDown(KeyCode.Z)) {
+        } else if (Input.GetKeyDown(kickButton)) {
             input.SetCoup(MyInput.Coup.KICK);
-        } else if (Input.GetKeyDown(KeyCode.E)) {
+        } else if (Input.GetKeyDown(uppercutButton)) {
             input.SetCoup(MyInput.Coup.UPPERCUT);
-        } else if (Input.GetKeyDown(KeyCode.LeftShift)) {
+        } else if (Input.GetKeyDown(protectButton)) {
             input.SetCoup(MyInput.Coup.PROTECT);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if (Input.GetKeyDown(leftButton)) {
             input.SetDeplacement(MyInput.Deplacement.LEFT);
-        } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        } else if (Input.GetKeyDown(rightButton)) {
             input.SetDeplacement(MyInput.Deplacement.RIGHT);
         }
     }
