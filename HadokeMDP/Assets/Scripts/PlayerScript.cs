@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[Serializable]
 public class PlayerScript : MonoBehaviour {
 
     public static int leftSideTerrain = 0;
     public static int rightSideTerrain = 10;
+    public static int nbPositions = rightSideTerrain - leftSideTerrain + 1;
     public static float offsetRightPlayer = 3.25f;
 
     public enum Etat {
@@ -41,7 +43,7 @@ public class PlayerScript : MonoBehaviour {
 
         // On update la position
         Vector3 oldPosition = displayPosition.position;
-        float x = (float)position / (float)rightSideTerrain * 20f - 10f;
+        float x = (float)position / (float)((float)rightSideTerrain - (float)leftSideTerrain) * 21f - 12f;
         if (!isLeftplayer)
             x += offsetRightPlayer;
         displayPosition.position = new Vector3(x, oldPosition.y, oldPosition.z);
@@ -105,7 +107,7 @@ public class PlayerScript : MonoBehaviour {
                 etat = Etat.IDLE;
                 break;
             case Etat.PROTECT:
-                etat = Etat.IDLE;
+                ApplyInputCoup(input);
                 ApplyInputDeplacement(input, positionAutrePlayer);
                 break;
             case Etat.DAMMAGED:
@@ -117,7 +119,7 @@ public class PlayerScript : MonoBehaviour {
 
     void ApplyInputCoup(MyInput input)
     {
-        switch(input.coup)
+        switch(input.GetCoup())
         {
             case MyInput.Coup.NOTHING:
                 etat = Etat.IDLE;
@@ -140,7 +142,7 @@ public class PlayerScript : MonoBehaviour {
     void ApplyInputDeplacement(MyInput input, int positionAutrePlayer)
     {
         int positionTmp = position;
-        switch(input.deplacement)
+        switch(input.GetDeplacement())
         {
             case MyInput.Deplacement.LEFT:
                 positionTmp = Mathf.Max(leftSideTerrain, position - 1);
@@ -193,5 +195,10 @@ public class PlayerScript : MonoBehaviour {
     bool isInDistance(PlayerScript autrePlayer, int distance)
     {
         return Mathf.Abs(autrePlayer.position - position) <= distance;
+    }
+
+    public PlayerState GetState()
+    {
+        return new PlayerState(position, etat);
     }
 }

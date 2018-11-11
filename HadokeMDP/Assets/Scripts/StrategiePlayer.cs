@@ -14,13 +14,16 @@ public class StrategiePlayer : Strategie {
 
     MyInput input;
 
-    public override MyInput GetInput() {
-        MyInput tmpInput = new MyInput(input.coup, input.deplacement);
+    public override MyInput GetInput(GameState gs) {
+        MyInput tmpInput = new MyInput(input.GetCoup(), input.GetDeplacement());
         input.Reset();
         return tmpInput;
     }
 
     public override void Load() {
+    }
+
+    public override void Reward(GameState S, MyInput A, GameState newS, float r) {
     }
 
     public override void Unload() {

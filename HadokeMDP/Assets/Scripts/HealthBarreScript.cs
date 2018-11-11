@@ -9,11 +9,8 @@ public class HealthBarreScript : MonoBehaviour {
 
     public void SetLife(float pourcentage)
     {
-        Debug.Log("pourcentage = " + pourcentage);
         Vector3 oldPosition = vie.localPosition;
-        Debug.Log("oldPosition = " + oldPosition);
         vie.localPosition = new Vector3(- tailleMax * (1 - pourcentage), oldPosition.y, oldPosition.z);
-        Debug.Log("X vie = " + ((float)tailleMax * ((float)1 - pourcentage)));
     }
 
 }
