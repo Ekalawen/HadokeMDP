@@ -52,7 +52,7 @@ public class StrategieMDP : Strategie
     string path;
 
     public override MyInput GetInput(GameState gs) {
-        if(UnityEngine.Random.Range(0, 1) < explorationRate)
+        if(UnityEngine.Random.Range(0f, 1f) < explorationRate)
         {
             return MyInput.Random();
         } else

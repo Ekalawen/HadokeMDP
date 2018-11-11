@@ -163,18 +163,22 @@ public class GameManagerScript : MonoBehaviour {
     void ResetMatch() {
         if(player2.isDead() && !player1.isDead()) {
             strategie1.RegisterVictory();
+            Debug.Log(nbMatchesDones + " matchs terminées ! " + player1.name + " Wins !");
         } else {
             strategie1.RegisterDefeat();
         }
         if(player1.isDead() && !player2.isDead()) {
             strategie2.RegisterVictory();
+            Debug.Log(nbMatchesDones + " matchs terminées ! " + player2.name + " Wins !");
         } else {
             strategie2.RegisterDefeat();
+        }
+        if (player1.isDead() && player2.isDead()) {
+            Debug.Log(nbMatchesDones + " matchs terminées ! " + "Egalité !");
         }
         player1.setInitialPosition(3);
         player2.setInitialPosition(7);
         player1.pv = 10;
         player2.pv = 10;
-        Debug.Log(nbMatchesDones + " matchs terminées !");
     }
 }

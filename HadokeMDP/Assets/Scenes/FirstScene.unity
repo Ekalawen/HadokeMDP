@@ -113,54 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &87618912
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.1799998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595909741819178, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 51fc27597c5b4e343b68c82697168f17, type: 2}
-  m_IsPrefabAsset: 0
---- !u!114 &89260879 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114949268181437888, guid: 51fc27597c5b4e343b68c82697168f17,
-    type: 2}
-  m_PrefabInternal: {fileID: 87618912}
-  m_Script: {fileID: 11500000, guid: a3612a4a2465e7f45848df6d570e797d, type: 3}
 --- !u!1001 &160768407
 Prefab:
   m_ObjectHideFlags: 0
@@ -381,6 +333,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114157587923789548, guid: 9ec54768188c79c49afd8c7d2433a46c,
+        type: 2}
+      propertyPath: explorationRateDecrease
+      value: 0.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114157587923789548, guid: 9ec54768188c79c49afd8c7d2433a46c,
+        type: 2}
+      propertyPath: explorationRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114157587923789548, guid: 9ec54768188c79c49afd8c7d2433a46c,
+        type: 2}
+      propertyPath: minExplorationRate
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114157587923789548, guid: 9ec54768188c79c49afd8c7d2433a46c,
+        type: 2}
+      propertyPath: filePath
+      value: QLearningRight_QTable_15000m.bin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ec54768188c79c49afd8c7d2433a46c, type: 2}
   m_IsPrefabAsset: 0
@@ -493,11 +465,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287297c28fd8cf64f8970dd9fa4554cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameRate: 0.5
+  frameRate: 0.01
   nbMatchs: 100
   player1: {fileID: 1563134529}
   player2: {fileID: 160768408}
-  strategie1: {fileID: 89260879}
+  strategie1: {fileID: 1128263713}
   strategie2: {fileID: 872771102}
   isDisplayedOnScreen: 1
 --- !u!114 &872771102 stripped
@@ -545,9 +517,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114419623688329572, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7,
+        type: 2}
+      propertyPath: explorationRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419623688329572, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7,
+        type: 2}
+      propertyPath: explorationRateDecrease
+      value: 0.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419623688329572, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7,
+        type: 2}
+      propertyPath: minExplorationRate
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419623688329572, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7,
+        type: 2}
+      propertyPath: filePath
+      value: QLearningLeft_QTable_100m.bin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1128263713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114419623688329572, guid: 5ec2ee5044f23ac4a9f5d9cdcdb1e0a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1128263712}
+  m_Script: {fileID: 11500000, guid: dc752e8014ebd5e4f9aa46bcc9955b50, type: 3}
 --- !u!1 &1194857340
 GameObject:
   m_ObjectHideFlags: 0
